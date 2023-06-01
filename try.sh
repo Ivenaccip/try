@@ -145,7 +145,6 @@ if ! [ -d data/results ]
                 mkdir data/results
 fi
 
-B
 clear
 
 #Hacer una lista con los perfiles que tenemos. Comprobar que pasa uno por uno con un print como prueba
@@ -170,70 +169,42 @@ for key in "${!profiles[@]}"; do
                 echo "value: $search_limpia"
                 filename=$(echo "$key" | tr ' ' '_')
                 wget --wait=40 --limit-rate=40k -U Mozilla -bq https://www.picnob.com/profile/$search_limpia/ -O data/results/Ig-$filename.txt > /dev/null
-                sleep 6
-                #while read -r linea; do
-
-                #*declare -i text_count
-                #*declare -i time_counter
-
+                sleep 15
                 while read -r linea; do
 #Segunda parte
 #Verificar si el texto coincide con alguna de las de los #'s de alguna empresa
-                        #echo "$linea"
-                        ##text=$(echo "$linea" |  grep "sum*" | grep -v "^<a class=" | sed 's/<div class="sum">//g' | sed 's/<a href[^>]*>//g' | sed 's/<\/a>//g' | sed 's/<img[^>]*>//g' | sed 's/<div[^>]*>//g' | sed 's/<\/div[^>]*>//g' | sed 's/<button[^>]*>//g' | sed 's/<span[^>]*>//g' | sed 's/<\/span[^>]*>//g' | sed 's/<\/button[^>]*>//g' | head -n -2 | tail -n +3 )
-                        ##date=$(echo "$linea" | grep "txt" | sed 's/<span[^>]*>//g' | sed 's/<\/span>//g' | head -n -3 | tail -n +7 )
                         echo "$linea"
-                        if [[ $linea == *"@alphenaer" || $linea == *"#alphenaer" || $linea == *"alphenaerminibrie" || $linea == *"geitenbrie" ]]; then
-echo "$linea" >> alphenaer.csv
-                        elif [[ $linea == *"@servero.nl" || $linea == *"#servero" || $linea == *"natuurlijkdelekkerste" || $linea == *"tussendoortje" ]]; then
-                                echo "$linea" >> servero.csv
-                        elif [[ $linea == *"@oldamsterdam.nl" || $linea == *"#oldamsterdam" || $linea == *"kaas" || $linea == *"borrel" ]]; then
-                                echo "$linea" >> old_amsterdam.csv
-                        elif [[ $linea == *"@lillet" || $linea == *"#cocktails" || $linea == *"apero" || $linea == *"lillet" ]]; then
-                                echo "$linea" >> lillet.csv
-                        elif [[ $linea == *"@Good4Unutrition" || $linea == *"#breakfastboost" || $linea == *"milledseed" || $linea == *"immuneboost" || $linea == *"superseed" || $linea == *"saladtopper" || $linea == *"feelthebenefit" ]]; then
-                                echo "$linea" >> good4U.csv
-                        elif [[ $linea == *"@kuehne" || $linea == *"#mosterd" || $linea == *"dutchfoodie" || $linea == *"kookinspiratie" ]]; then
-                                echo "$linea" >> kuhne.csv
-                        elif [[ $linea == *"@princes.nl" || $linea == *"#plantaardigetonijin" || $linea == *"verruimjeblik" || $linea == *"plantaardiglekker" ]]; then
-                                echo "$linea" >> princes.csv
-                        elif [[ $linea == *"@yildriz" || $linea == *"#yildriz" || $linea == *"allioli" || $linea == *"wereldsauzen" || $linea == *"tzatziki" ]]; then
-                                echo "$linea" >> yildriz.csv
-                        elif [[ $linea == *"@Depindakaaswinkel" || $linea == *"#pindakaas" || $linea == *"pindabaas" || $linea == *"depindakaaswinkel" ]]; then
-                                echo "$linea" >> pindakaaswinkel.csv
-                        elif [[ $linea == *"@verstegennl" || $linea == *"#verstegenfriends" || $linea == *"hetalternatiefvoorzout" || $linea == *"goudishetnieuwezout" ]]; then
-                                echo "$linea" >> verstegen.csv
-                        elif [[ $linea == *"@Ceders" || $linea == *"#zeroalcohol" || $linea == *"cedersdrinks" || $linea == *"LiveFreeSpirit" ]]; then
-                                echo "$linea" >> ceder.csv
-                        fi
-                        ##echo "$text"
-                        ##echo "$date"
+                done < data/results/Ig-$filename.txt | grep  -o '<img alt[^>]*>' | grep -o '".*"' | head -n -2 | tail -n +3 > output-$filename.csv
 
-
-                        #*if [[ $linea =~ 'class="sum"' ]]; then
-                        #*      text_count+=1
-
-                        #*      if ((text_count < 3)); then
-                        #*              continue
-                        #*      elif ((text_count > 2)); then
-                        #*              text=$(echo "$linea" | grep -oP '(?<=<div class="sum">).*' )
-                        #*              if ((text_count == 3)); then
-                        #*                      text_content="$text"
-                        #*              else
-                        #*                      text_content="$text_content\n$text"
-                        #*              fi
-                        #*      fi
-                        #*elif [[ $linea =~ 'class="txt"' ]]; then
-                        #*      time_counter+=1
-
-                        #*      if ((time_counter < 7)); then
-                        #*              continue
-                        #*      elif ((time_counter > 6)); then
-                        #*              time=$(echo "$linea" | grep -oP '(?<=<span class="txt">).*')
-                        #*      fi
-                        #*
-                done < data/results/Ig-$filename.txt | grep "sum*" | grep -v "^<a class=" | sed 's/<div class="sum">//g' | sed 's/<a href[^>]*>//g' | sed 's/<\/a>//g' | sed 's/<img[^>]*>//g' | sed 's/<div[^>]*>//g' | sed 's/<\/div[^>]*>//g' | sed 's/<button[^>]*>//g' | sed 's/<span[^>]*>//g' | sed 's/<\/span[^>]*>//g' | sed 's/<\/button[^>]*>//g' | head -n -2 | tail -n +3 > output.csv
-                #*echo -e "$text_content"
-                #*echo "$time"
+#tercer parte
+#conteo desde el output.csv
+                archivo="output-$filename.csv"
+                cat "$archivo"
+                Alphenaer=$(grep -c "@alphenaer\|#alphenaer\|#alphenaerminibrie\|#geitenbrie" "$archivo")
+                Servero=$(grep -c "@Servero.nl\|#servero\|#natuurlijkdelekkerste\|#tussendoortje" "$archivo")
+                Old_Amsterdam=$(grep -c "@oldamsterdam_nl\|#oldamsterdam\|#kaas\|#borrel" "$archivo")
+                Lillet=$(grep -c "@lillet\|#lillet\|#cocktails\|#apero" "$archivo")
+                Good4U_1=$(grep -c "@Good4Unutrition\|#breakfastboost\|#miledseed\|#immuneboost" "$archivo")
+                Good4U_2=$(grep -c "@Good4Unutrition\|#superseed\|#saladtopper\|#feelthebenefit" "$archivo")
+                Kuhne=$(grep -c "@Kuehne_nl\|#mosterd\|#duthcfoodie\|#kookinspiratie" "$archivo")
+                Princes=$(grep -c "@Princes_nl\|#plantaardigetonijn\|#verruimjeblik\|#plantaardiglekker" "$archivo")
+                Yildriz=$(grep -c "@Yildriz\|#yildriz\|allioli\|#wereldsauzen\|#tzatziki" "$archivo")
+                De_Pindakaaswinkel=$(grep -c "@Depindakaaswinkel\|#pindakaas\|#pindabaas\|#depindakaaswinkel" "$archivo")
+                Verstegen=$(grep -c "@Verstegennl\|#verstegenfriends\|#hetalternatiefvoorzout\|#goudishetnieuwezout" "$archivo")
+                Ceders=$(grep -c "@Ceders_drinks\|#zeroalcohol\|#cedersdrinks\|#LiveFreeSpirit" "$archivo")
+                Kroon=$(grep -c "@kroonophetwerk" "$archivo")
+                echo "Alphenaer #'s: $Alphenaer"
+                echo "Servero #'s: $Servero"
+                echo "Old_Amsterdam #'s: $Old_Amsterdam"
+                echo "Lillet #'s: $Lillet"
+                echo "Good4U_1  #'s: $Good4U_1"
+                echo "Good4U_2 #'s: $Good4U_2"
+                echo "Kuhne #'s: $Kuhne"
+                echo "Princes #'s: $Princes"
+                echo "Yildriz #'s: $Yildriz"
+                echo "De Pindakaaswinkel #'s: $De_Pindakaaswinkel"
+                echo "Verstegen #'s: $Verstegen"
+                echo "Ceders #'s: $Ceders"
+                echo "Kroon #'s: $Kroon"
         fi
 done
