@@ -174,11 +174,11 @@ for key in "${!profiles[@]}"; do
 #Segunda parte
 #Verificar si el texto coincide con alguna de las de los #'s de alguna empresa
                         echo "$linea"
-                done < data/results/Ig-$filename.txt | grep  -o '<img alt[^>]*>' | grep -o '".*"' | head -n -2 | tail -n +3 > output-$filename.csv
+                done < data/results/Ig-$filename.txt | grep  -o '<img alt[^>]*>' | tail -n +4 | head -n -1 | sed 's/class="lazyload[^>]*>//g' | sed 's/<img alt=//g' > text-$filename.csv
 
 #tercer parte
-#conteo desde el output.csv
-                archivo="output-$filename.csv"
+#conteo desde el text-$filename.csv
+                archivo="text-$filename.csv"
                 cat "$archivo"
                 Alphenaer=$(grep -c "@alphenaer\|#alphenaer\|#alphenaerminibrie\|#geitenbrie" "$archivo")
                 Servero=$(grep -c "@Servero.nl\|#servero\|#natuurlijkdelekkerste\|#tussendoortje" "$archivo")
