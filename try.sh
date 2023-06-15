@@ -194,43 +194,43 @@ for key in "${!profiles[@]}"; do
                 Ceders=$(grep -c "@Ceders_drinks\|#zeroalcohol\|#cedersdrinks\|#LiveFreeSpirit" "$archivo")
                 Kroon=$(grep -c "@kroonophetwerk" "$archivo")
                 if [[ $Alphenaer -gt 0 ]]; then
-                        echo "Alphenaer #'s: $Alphenaer"> text-$filename.csv
+                        echo "Alphenaer #'s: $Alphenaer"> coincidence-$filename.txt
                 fi
                 if [[ $Servero -gt 0 ]]; then
-                        echo "Servero #'s: $Servero"> text-$filename.csv
+                        echo "Servero #'s: $Servero"> coincidence-$filename.txt
                 fi
                 if [[ $Old_Amsterdam -gt 0 ]]; then
-                        echo "Old_Amsterdam #'s: $Old_Amsterdam"> text-$filename.csv
+                        echo "Old_Amsterdam #'s: $Old_Amsterdam"> coincidence-$filename.txt
                 fi
                 if [[ $Lille -gt 0 ]]; then
-                        echo "Lillet #'s: $Lillet"> text-$filename.csv
+                        echo "Lillet #'s: $Lillet"> coincidence-$filename.txt
                 fi
                 if [[ $Good4U_1 -gt 0 ]]; then
-                        echo "Good4U_1  #'s: $Good4U_1"> text-$filename.csv
+                        echo "Good4U_1  #'s: $Good4U_1"> coincidence-$filename.txt
                 fi
                 if [[ $Good4U_2 -gt 0 ]]; then
-                        echo "Good4U_2 #'s: $Good4U_2"> text-$filename.csv
+                        echo "Good4U_2 #'s: $Good4U_2"> coincidence-$filename.txt
                 fi
                 if [[ $Kuhne -gt 0 ]]; then
-                        echo "Kuhne #'s: $Kuhne"> text-$filename.csv
+                        echo "Kuhne #'s: $Kuhne"> coincidence-$filename.txt
                 fi
                 if [[ $Princes -gt 0 ]]; then
-                        echo "Princes #'s: $Princes"> text-$filename.csv
+                        echo "Princes #'s: $Princes"> coincidence-$filename.txt
                 fi
                 if [[ $Yildriz -gt 0 ]]; then
-                        echo "Yildriz #'s: $Yildriz"> text-$filename.csv
+                        echo "Yildriz #'s: $Yildriz"> coincidence-$filename.txt
                 fi
                 if [[ $De_Pindakaaswinkel -gt 0 ]]; then
-                        echo "De Pindakaaswinkel #'s: $De_Pindakaaswinkel"> text-$filename.csv
+                        echo "De Pindakaaswinkel #'s: $De_Pindakaaswinkel"> coincidence-$filename.txt
                 fi
                 if [[ $De_Pindakaaswinkel -gt 0 ]]; then
-                        echo "Verstegen #'s: $Verstegen"> text-$filename.csv
+                        echo "Verstegen #'s: $Verstegen"> coincidence-$filename.txt
                 fi
                 if [[ $Ceders -gt 0 ]]; then
-                        echo "Ceders #'s: $Ceders"> text-$filename.csv
+                        echo "Ceders #'s: $Ceders"> coincidence-$filename.txt
                 fi
                 if [[ $Kroon -gt 0 ]]; then
-                        echo "Kroon #'s: $Kroon"> text-$filename.csv
+                        echo "Kroon #'s: $Kroon"> coincidence-$filename.txt
                 fi
         fi
 done
