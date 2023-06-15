@@ -194,43 +194,43 @@ for key in "${!profiles[@]}"; do
                 Ceders=$(grep -c "@Ceders_drinks\|#zeroalcohol\|#cedersdrinks\|#LiveFreeSpirit" "$archivo")
                 Kroon=$(grep -c "@kroonophetwerk" "$archivo")
                 if [[ $Alphenaer -gt 0 ]]; then
-                        echo "Alphenaer #'s: $Alphenaer"
+                        echo "Alphenaer #'s: $Alphenaer"> text-$filename.csv
                 fi
                 if [[ $Servero -gt 0 ]]; then
-                        echo "Servero #'s: $Servero"
+                        echo "Servero #'s: $Servero"> text-$filename.csv
                 fi
                 if [[ $Old_Amsterdam -gt 0 ]]; then
-                        echo "Old_Amsterdam #'s: $Old_Amsterdam"
+                        echo "Old_Amsterdam #'s: $Old_Amsterdam"> text-$filename.csv
                 fi
                 if [[ $Lille -gt 0 ]]; then
-                        echo "Lillet #'s: $Lillet"
+                        echo "Lillet #'s: $Lillet"> text-$filename.csv
                 fi
                 if [[ $Good4U_1 -gt 0 ]]; then
-                        echo "Good4U_1  #'s: $Good4U_1"
+                        echo "Good4U_1  #'s: $Good4U_1"> text-$filename.csv
                 fi
                 if [[ $Good4U_2 -gt 0 ]]; then
-                        echo "Good4U_2 #'s: $Good4U_2"
+                        echo "Good4U_2 #'s: $Good4U_2"> text-$filename.csv
                 fi
                 if [[ $Kuhne -gt 0 ]]; then
-                        echo "Kuhne #'s: $Kuhne"
+                        echo "Kuhne #'s: $Kuhne"> text-$filename.csv
                 fi
                 if [[ $Princes -gt 0 ]]; then
-                        echo "Princes #'s: $Princes"
+                        echo "Princes #'s: $Princes"> text-$filename.csv
                 fi
                 if [[ $Yildriz -gt 0 ]]; then
-                        echo "Yildriz #'s: $Yildriz"
+                        echo "Yildriz #'s: $Yildriz"> text-$filename.csv
                 fi
                 if [[ $De_Pindakaaswinkel -gt 0 ]]; then
-                        echo "De Pindakaaswinkel #'s: $De_Pindakaaswinkel"
+                        echo "De Pindakaaswinkel #'s: $De_Pindakaaswinkel"> text-$filename.csv
                 fi
                 if [[ $De_Pindakaaswinkel -gt 0 ]]; then
-                        echo "Verstegen #'s: $Verstegen"
+                        echo "Verstegen #'s: $Verstegen"> text-$filename.csv
                 fi
                 if [[ $Ceders -gt 0 ]]; then
-                        echo "Ceders #'s: $Ceders"
+                        echo "Ceders #'s: $Ceders"> text-$filename.csv
                 fi
                 if [[ $Kroon -gt 0 ]]; then
-                        echo "Kroon #'s: $Kroon"
+                        echo "Kroon #'s: $Kroon"> text-$filename.csv
                 fi
         fi
 done
