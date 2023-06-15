@@ -193,18 +193,44 @@ for key in "${!profiles[@]}"; do
                 Verstegen=$(grep -c "@Verstegennl\|#verstegenfriends\|#hetalternatiefvoorzout\|#goudishetnieuwezout" "$archivo")
                 Ceders=$(grep -c "@Ceders_drinks\|#zeroalcohol\|#cedersdrinks\|#LiveFreeSpirit" "$archivo")
                 Kroon=$(grep -c "@kroonophetwerk" "$archivo")
-                echo "Alphenaer #'s: $Alphenaer"
-                echo "Servero #'s: $Servero"
-                echo "Old_Amsterdam #'s: $Old_Amsterdam"
-                echo "Lillet #'s: $Lillet"
-                echo "Good4U_1  #'s: $Good4U_1"
-                echo "Good4U_2 #'s: $Good4U_2"
-                echo "Kuhne #'s: $Kuhne"
-                echo "Princes #'s: $Princes"
-                echo "Yildriz #'s: $Yildriz"
-                echo "De Pindakaaswinkel #'s: $De_Pindakaaswinkel"
-                echo "Verstegen #'s: $Verstegen"
-                echo "Ceders #'s: $Ceders"
-                echo "Kroon #'s: $Kroon"
+                if [[ $Alphenaer -gt 0 ]]; then
+                        echo "Alphenaer #'s: $Alphenaer"
+                fi
+                if [[ $Servero -gt 0 ]]; then
+                        echo "Servero #'s: $Servero"
+                fi
+                if [[ $Old_Amsterdam -gt 0 ]]; then
+                        echo "Old_Amsterdam #'s: $Old_Amsterdam"
+                fi
+                if [[ $Lille -gt 0 ]]; then
+                        echo "Lillet #'s: $Lillet"
+                fi
+                if [[ $Good4U_1 -gt 0 ]]; then
+                        echo "Good4U_1  #'s: $Good4U_1"
+                fi
+                if [[ $Good4U_2 -gt 0 ]]; then
+                        echo "Good4U_2 #'s: $Good4U_2"
+                fi
+                if [[ $Kuhne -gt 0 ]]; then
+                        echo "Kuhne #'s: $Kuhne"
+                fi
+                if [[ $Princes -gt 0 ]]; then
+                        echo "Princes #'s: $Princes"
+                fi
+                if [[ $Yildriz -gt 0 ]]; then
+                        echo "Yildriz #'s: $Yildriz"
+                fi
+                if [[ $De_Pindakaaswinkel -gt 0 ]]; then
+                        echo "De Pindakaaswinkel #'s: $De_Pindakaaswinkel"
+                fi
+                if [[ $De_Pindakaaswinkel -gt 0 ]]; then
+                        echo "Verstegen #'s: $Verstegen"
+                fi
+                if [[ $Ceders -gt 0 ]]; then
+                        echo "Ceders #'s: $Ceders"
+                fi
+                if [[ $Kroon -gt 0 ]]; then
+                        echo "Kroon #'s: $Kroon"
+                fi
         fi
 done
