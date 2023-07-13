@@ -179,58 +179,58 @@ for key in "${!profiles[@]}"; do
 #tercer parte
 #conteo desde el text-$filename.csv
                 archivo="text-$filename.csv"
-                cat "$archivo"
-                Alphenaer=$(grep -c "@alphenaer\|#alphenaer\|#alphenaerminibrie\|#geitenbrie" "$archivo")
-                Servero=$(grep -c "@Servero.nl\|#servero\|#natuurlijkdelekkerste\|#tussendoortje" "$archivo")
-                Old_Amsterdam=$(grep -c "@oldamsterdam_nl\|#oldamsterdam\|#kaas\|#borrel" "$archivo")
-                Lillet=$(grep -c "@lillet\|#lillet\|#cocktails\|#apero" "$archivo")
-                Good4U_1=$(grep -c "@Good4Unutrition\|#breakfastboost\|#miledseed\|#immuneboost" "$archivo")
-                Good4U_2=$(grep -c "@Good4Unutrition\|#superseed\|#saladtopper\|#feelthebenefit" "$archivo")
-                Kuhne=$(grep -c "@Kuehne_nl\|#mosterd\|#duthcfoodie\|#kookinspiratie" "$archivo")
-                Princes=$(grep -c "@Princes_nl\|#plantaardigetonijn\|#verruimjeblik\|#plantaardiglekker" "$archivo")
-                Yildriz=$(grep -c "@Yildriz\|#yildriz\|allioli\|#wereldsauzen\|#tzatziki" "$archivo")
-                De_Pindakaaswinkel=$(grep -c "@Depindakaaswinkel\|#pindakaas\|#pindabaas\|#depindakaaswinkel" "$archivo")
-                Verstegen=$(grep -c "@Verstegennl\|#verstegenfriends\|#hetalternatiefvoorzout\|#goudishetnieuwezout" "$archivo")
-                Ceders=$(grep -c "@Ceders_drinks\|#zeroalcohol\|#cedersdrinks\|#LiveFreeSpirit" "$archivo")
-                Kroon=$(grep -c "@kroonophetwerk" "$archivo")
-                if [[ $Alphenaer -gt 0 ]]; then
-                        echo "Alphenaer #'s: $Alphenaer"> coincidence-$filename.txt
+                cat "$archivo" | sed 's/\.\([^A-Za-z]\)/.\n\1/g'
+                Alphenaer=$(grep -n "@alphenaer\|#alphenaer\|#alphenaerminibrie\|#geitenbrie" "$archivo")
+                Servero=$(grep -n "@Servero.nl\|#servero\|#natuurlijkdelekkerste\|#tussendoortje" "$archivo")
+                Old_Amsterdam=$(grep -n "@oldamsterdam_nl\|#oldamsterdam\|#kaas\|#borrel" "$archivo")
+                Lillet=$(grep -n "@lillet\|#lillet\|#cocktails\|#apero" "$archivo")
+                Good4U_1=$(grep -n "@Good4Unutrition\|#breakfastboost\|#miledseed\|#immuneboost" "$archivo")
+                Good4U_2=$(grep -n "@Good4Unutrition\|#superseed\|#saladtopper\|#feelthebenefit" "$archivo")
+                Kuhne=$(grep -n "@Kuehne_nl\|#mosterd\|#duthcfoodie\|#kookinspiratie" "$archivo")
+                Princes=$(grep -n "@Princes_nl\|#plantaardigetonijn\|#verruimjeblik\|#plantaardiglekker" "$archivo")
+                Yildriz=$(grep -n "@Yildriz\|#yildriz\|allioli\|#wereldsauzen\|#tzatziki" "$archivo")
+                De_Pindakaaswinkel=$(grep -n "@Depindakaaswinkel\|#pindakaas\|#pindabaas\|#depindakaaswinkel" "$archivo")
+                Verstegen=$(grep -n "@Verstegennl\|#verstegenfriends\|#hetalternatiefvoorzout\|#goudishetnieuwezout" "$archivo")
+                Ceders=$(grep -n "@Ceders_drinks\|#zeroalcohol\|#cedersdrinks\|#LiveFreeSpirit" "$archivo")
+                Kroon=$(grep -n "@kroonophetwerk" "$archivo")
+                if [[ -n $Alphenaer]]; then
+                        echo "Alphenaer #'s: $Alphenaer">> coincidence-$filename.txt
                 fi
-                if [[ $Servero -gt 0 ]]; then
-                        echo "Servero #'s: $Servero"> coincidence-$filename.txt
+                if [[ -n $Servero]]; then
+                        echo "Servero #'s: $Servero">> coincidence-$filename.txt
                 fi
-                if [[ $Old_Amsterdam -gt 0 ]]; then
-                        echo "Old_Amsterdam #'s: $Old_Amsterdam"> coincidence-$filename.txt
+                if [[ -n $Old_Amsterdam ]]; then
+                        echo "Old_Amsterdam #'s: $Old_Amsterdam">> coincidence-$filename.txt
                 fi
-                if [[ $Lille -gt 0 ]]; then
-                        echo "Lillet #'s: $Lillet"> coincidence-$filename.txt
+                if [[ -n $Lille ]]; then
+                        echo "Lillet #'s: $Lillet">> coincidence-$filename.txt
                 fi
-                if [[ $Good4U_1 -gt 0 ]]; then
-                        echo "Good4U_1  #'s: $Good4U_1"> coincidence-$filename.txt
+                if [[ -n $Good4U_1 ]]; then
+                        echo "Good4U_1  #'s: $Good4U_1">> coincidence-$filename.txt
                 fi
-                if [[ $Good4U_2 -gt 0 ]]; then
-                        echo "Good4U_2 #'s: $Good4U_2"> coincidence-$filename.txt
+                if [[ -n $Good4U_2 ]]; then
+                        echo "Good4U_2 #'s: $Good4U_2">> coincidence-$filename.txt
                 fi
-                if [[ $Kuhne -gt 0 ]]; then
-                        echo "Kuhne #'s: $Kuhne"> coincidence-$filename.txt
+                if [[ -n $Kuhne ]]; then
+                        echo "Kuhne #'s: $Kuhne">> coincidence-$filename.txt
                 fi
-                if [[ $Princes -gt 0 ]]; then
-                        echo "Princes #'s: $Princes"> coincidence-$filename.txt
+                if [[ -n $Princes ]]; then
+                        echo "Princes #'s: $Princes">> coincidence-$filename.txt
                 fi
-                if [[ $Yildriz -gt 0 ]]; then
-                        echo "Yildriz #'s: $Yildriz"> coincidence-$filename.txt
+                if [[ -n $Yildriz ]]; then
+                        echo "Yildriz #'s: $Yildriz">> coincidence-$filename.txt
                 fi
-                if [[ $De_Pindakaaswinkel -gt 0 ]]; then
-                        echo "De Pindakaaswinkel #'s: $De_Pindakaaswinkel"> coincidence-$filename.txt
+                if [[ -n $De_Pindakaaswinkel  ]]; then
+                        echo "De Pindakaaswinkel #'s: $De_Pindakaaswinkel">> coincidence-$filename.txt
                 fi
-                if [[ $De_Pindakaaswinkel -gt 0 ]]; then
-                        echo "Verstegen #'s: $Verstegen"> coincidence-$filename.txt
+                if [[ -n $De_Pindakaaswinkel ]]; then
+                        echo "Verstegen #'s: $Verstegen">> coincidence-$filename.txt
                 fi
-                if [[ $Ceders -gt 0 ]]; then
-                        echo "Ceders #'s: $Ceders"> coincidence-$filename.txt
+                if [[ -n $Ceders ]]; then
+                        echo "Ceders #'s: $Ceders">> coincidence-$filename.txt
                 fi
-                if [[ $Kroon -gt 0 ]]; then
-                        echo "Kroon #'s: $Kroon"> coincidence-$filename.txt
+                if [[ -n $Kroon ]]; then
+                        echo "Kroon #'s: $Kroon">> coincidence-$filename.txt
                 fi
         fi
 done
