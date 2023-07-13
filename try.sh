@@ -193,10 +193,10 @@ for key in "${!profiles[@]}"; do
                 Verstegen=$(grep -n "@Verstegennl\|#verstegenfriends\|#hetalternatiefvoorzout\|#goudishetnieuwezout" "$archivo")
                 Ceders=$(grep -n "@Ceders_drinks\|#zeroalcohol\|#cedersdrinks\|#LiveFreeSpirit" "$archivo")
                 Kroon=$(grep -n "@kroonophetwerk" "$archivo")
-                if [[ -n $Alphenaer]]; then
+                if [[ -n $Alphenaer ]]; then
                         echo "Alphenaer #'s: $Alphenaer">> coincidence-$filename.txt
                 fi
-                if [[ -n $Servero]]; then
+                if [[ -n $Servero ]]; then
                         echo "Servero #'s: $Servero">> coincidence-$filename.txt
                 fi
                 if [[ -n $Old_Amsterdam ]]; then
