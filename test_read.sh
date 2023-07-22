@@ -12,5 +12,5 @@ done < "$filename"
 
 for key in "${!profiles[@]}"
 do
-	echo "['$key']='${profiles[$key]}'"
+	echo "[\"$key\"]='${profiles[$key]}'"
 done
