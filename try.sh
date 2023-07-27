@@ -28,7 +28,6 @@ declare -A profiles=(
 ["Brigitte Lifestyle"]='https://www.instagram.com/brigitte_lifestyle/'
 ["By Andrea Janssen"]='https://www.instagram.com/byandreajanssen/'
 ["By Sin"]='https://www.instagram.com/foodbysin/'
-["Charlotte Janssen"]='https://www.instagram.com/charlottejanssen94/  '
 ["Charlotte Janssen"]='https://www.instagram.com/charlottejanssen94/'
 ["Cookies and carrots"]='https://www.instagram.com/cookies_and_carrotsticks/'
 ["CookingQueens"]='https://www.instagram.com/cookingqueensnl/'
